@@ -1,5 +1,13 @@
 ﻿namespace _001_CSharp_OOP;
 
+/// <summary>
+/// Represents a family member in a genealogical tree.
+/// </summary>
+/// <remarks>
+/// Each family member has a name, gender, and a list of children.
+/// The class provides methods to output the family member's information as a string 
+/// and to recursively print the family tree starting from that member.
+/// </remarks>
 public class FamilyMember
 {
     public string Name { get; set; }
