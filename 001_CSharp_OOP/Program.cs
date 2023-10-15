@@ -4,7 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Lecture.Person();
-        Practice.Family();
+        // Lecture.Ex01();
+        // Lecture.Ex02();
+        // Lecture.Ex03();
+        // Lecture.Ex04();
+        // Lecture.Ex05();
+        Lecture.Ex06();
     }
 }
