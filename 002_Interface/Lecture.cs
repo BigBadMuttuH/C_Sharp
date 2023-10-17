@@ -113,5 +113,6 @@ public class Lecture
         b[0] = true;
         Console.WriteLine(b.Value);
     }
-
+    // TODO: 1:00:03 следующая часть лекции.
+    // Переопределение операторов.
 }
