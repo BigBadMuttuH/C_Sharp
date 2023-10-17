@@ -1,9 +1,7 @@
 ﻿namespace _001_CSharp_OOP;
 
-public class Man:Person
+public class Man : Person
 {
-    protected override string HelloPhrase => "Привет, я - мужчина!";
-
     public Man(string name, DateTime birthday) : base(name, birthday)
     {
     }
@@ -12,11 +10,14 @@ public class Man:Person
     {
     }
 
+    protected override string HelloPhrase => "Привет, я - мужчина!";
+
     public bool HasBeard { get; private set; } = true;
+
     public void Shave()
     {
         Console.WriteLine("Бреется");
-        this.HasBeard = false;
+        HasBeard = false;
     }
 
 
@@ -28,5 +29,10 @@ public class Man:Person
     public void SayHelloLikeParent()
     {
         base.SayHello();
+    }
+
+    protected override void TakeCareImplementation()
+    {
+        Console.WriteLine("Проверяет уроки и идёт с детьми на прогулку!");
     }
 }
