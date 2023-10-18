@@ -9,6 +9,10 @@ class Program
         // Lecture.Ex03();
         // Lecture.Ex04();
         // Lecture.Ex05();
-        Lecture.Ex06();
+        // Lecture.Ex06();
+        // Lecture.Ex07();
+        // Lecture.Ex08();
+        // Lecture.Ex09();
+        Lecture.Ex10();
     }
 }

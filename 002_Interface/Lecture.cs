@@ -1,4 +1,5 @@
-﻿using _001_CSharp_OOP;
+﻿using System.Security.Cryptography;
+using _001_CSharp_OOP;
 
 namespace _002_Interface;
 
@@ -113,6 +114,59 @@ public class Lecture
         b[0] = true;
         Console.WriteLine(b.Value);
     }
+
     // TODO: 1:00:03 следующая часть лекции.
-    // Переопределение операторов.
+    /// <summary>
+    /// Переопределение операторов.
+    /// </summary>
+    public static void Ex07()
+    {
+        var a = new Fibonacci();
+        for (int i = 0; i <= 8; i++)
+        {
+            Console.Write($"{a} ");
+            a++;
+        }
+        var b  = new Fibonacci() + 8;
+        Console.WriteLine($"\n{b}");
+    }
+
+    // явное и не явное приведение типа
+    // implicit - не явное
+    // explicit - явное
+    public static void Ex08()
+    {
+        var bits = new Bits1(20);
+        byte b = bits;
+        Console.WriteLine(b);
+
+        b = 21;
+        bits = (Bits1)b;
+        Console.WriteLine(b);
+    }
+    // Анонимные типы
+    public static void Ex09()
+    {
+        var person1 = new Man("Рома");
+        var person2 = new Man("Миша");
+        var person3 = new Man("Илья");
+
+        var groupOf3 = new { Name1 = person1.Name, Name2 = person2.Name, Name3 = person3.Name };
+        Console.WriteLine(groupOf3);
+        var groupOf33 = new { person1.Name, Name2 = person2.Name, Name3 = person3.Name };
+        Console.WriteLine(groupOf33);
+    }
+    // Записи (record)
+    public static void Ex10()
+    {
+        var r = new Record(10) { c = 20 };
+        r.b = 30;
+        Console.WriteLine(r);
+
+        var r1 = new ReferenceRecord() { b = 10 };
+        var r2 = r1;
+        r2.b = 30;
+        Console.WriteLine(r1);
+        Console.WriteLine(r2);
+    }
 }
