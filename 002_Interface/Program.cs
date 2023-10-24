@@ -13,6 +13,8 @@ class Program
         // Lecture.Ex07();
         // Lecture.Ex08();
         // Lecture.Ex09();
-        Lecture.Ex10();
+        // Lecture.Ex10();
+        // Practice.Pr01();
+        Practice.Pr02();
     }
 }
