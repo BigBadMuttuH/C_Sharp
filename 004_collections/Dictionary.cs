@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace _004_collections;
 
@@ -97,5 +98,70 @@ public static class Dictionary
         Console.WriteLine(d["Беларусь"]);
 
         // var err = d["Казахстан"]; // туту будет ошибка
-    } 
+        d.Add("Казахстан", "Астана");
+        // System.ArgumentException An item with the same key has already been added. Key: Россия 
+        // d.Add("Россия", "Санкт-Петербург");
+        if (!d.TryAdd("Россия", "Санкт-Петербург"))
+            Console.WriteLine("Такой ключ уже имеется");
+
+        Console.WriteLine(d.ContainsKey("Россия"));
+        Console.WriteLine(d.ContainsValue("Москва"));
+
+        Console.WriteLine();
+        if (d.Remove("Россия", out string val)) // может возвращать true/false
+            Console.WriteLine(val);
+        
+        d.Add("Россия", "Москва");
+    }
+
+    public static void Ex05()
+    {
+        var d = new Dictionary<string, int>();
+        var text = "Я текст текст текст, подсчитай сколько у меня одинаковых слов слов";
+        var sb = new StringBuilder();
+
+        foreach (var c in text)
+        {
+            if (Char.IsLetter(c))
+                sb.Append(c);
+            else
+            {
+                if (sb.Length > 0)
+                {
+                    var key = sb.ToString().ToLower();
+                    
+                    if (d.ContainsKey(key))
+                    {
+                        d[key]++;
+                    }
+                    else
+                    {
+                        d[key] = 1;
+                    }
+
+                    sb.Clear();
+                }
+            }
+        }
+        if (sb.Length > 0)
+        {
+            var key = sb.ToString().ToLower();
+            
+            if (d.ContainsKey(key))
+            {
+                d[key]++;
+            }
+            else
+            {
+                d[key] = 0;
+            }
+            
+            sb.Clear();
+        }
+
+        foreach (var e in d)
+        {
+            Console.WriteLine($"{e.Key} = {e.Value}");
+        }
+    }
 }
