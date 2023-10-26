@@ -1,6 +1,6 @@
 ﻿namespace _003_collections;
 
-public class HomeWork03
+public static class HomeWork03
 {
     public static void Hw01()
     {
