@@ -23,8 +23,10 @@ internal static class Program
         // Practice.Pr03();
         // Practice.Pr04();
         // Practice.Pr05();
-        // HomeWork01.Hw01();
-        // HomeWork02.Hw01();
+        HomeWork01.Hw01();
+        Console.WriteLine();
+        HomeWork02.Hw01();
+        Console.WriteLine();
         HomeWork03.Hw01();
     }
 }

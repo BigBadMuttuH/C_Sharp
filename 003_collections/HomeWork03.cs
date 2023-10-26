@@ -15,7 +15,7 @@ public static class HomeWork03
             { 1, 1, 1, 0, 1, 1, 1 }
         };
 
-        var exitsCount1 = HasExit(3, 0, labyrinth1);
+        var exitsCount1 = HasExit(1, 1, labyrinth1);
         if (exitsCount1 > 0)
             Console.WriteLine($"Найдено выходов: {exitsCount1}");
         else

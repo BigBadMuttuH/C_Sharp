@@ -14,10 +14,28 @@ public static class HomeWork01
             { 1, 1, 1, 0, 1, 1, 1 },
             { 1, 1, 1, 2, 1, 1, 1 }
         };
+        var exits1 = FindExits(1, 3, labyrinth1);
+        Console.WriteLine($"Количество выходов: {exits1.Count}");
+        foreach (var exit in exits1) Console.WriteLine($"Выход находится на позиции ({exit.Item1}, {exit.Item2})");
+        // Количество выходов: 2
+        // Выход находится на позиции (3, 6)
+        // Выход находится на позиции (6, 3)
 
-        var exits = FindExits(1, 3, labyrinth1);
-        Console.WriteLine($"Количество выходов: {exits.Count}");
-        foreach (var exit in exits) Console.WriteLine($"Выход находится на позиции ({exit.Item1}, {exit.Item2})");
+
+        int[,] labyrinth2 =
+        {
+            { 1, 1, 1, 1, 1, 1, 1 },
+            { 1, 0, 0, 0, 0, 0, 1 },
+            { 1, 0, 1, 1, 1, 0, 1 },
+            { 0, 0, 0, 0, 1, 0, 0 },
+            { 1, 1, 0, 0, 1, 1, 1 },
+            { 1, 1, 1, 0, 1, 1, 1 },
+            { 1, 1, 1, 0, 1, 1, 1 }
+        };
+        var exits2 = FindExits(1, 3, labyrinth2);
+        Console.WriteLine($"Количество выходов: {exits2.Count}");
+        foreach (var exit in exits2) Console.WriteLine($"Выход находится на позиции ({exit.Item1}, {exit.Item2})");
+        // Количество выходов: 0
     }
 
     private static List<Tuple<int, int>> FindExits(int startI, int startJ, int[,] l)

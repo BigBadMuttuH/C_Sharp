@@ -1,3 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace _004_collections;
 
-Console.WriteLine("Hello, World!");
+internal static class Program
+{
+    private static void Main(string[] args)
+    {
+        // Dictionary.Ex01();
+        // Dictionary.Ex02();
+        // Dictionary.Ex03();
+        Dictionary.Ex04();
+    }
+}
