@@ -101,13 +101,14 @@ public abstract class Person : IComparable, IParent, IFamily
         else
             return;
 
-        int counter = 0;
+        var counter = 0;
 
         if (Father != null)
         {
             Family[counter] = Father;
             counter++;
         }
+
         if (Mother != null)
         {
             Family[counter] = Mother;

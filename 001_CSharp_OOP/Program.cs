@@ -1,8 +1,8 @@
 ﻿namespace _001_CSharp_OOP;
 
-class Program
+internal class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         // Lecture.Ex01();
         // Lecture.Ex02();

@@ -14,6 +14,12 @@ public class Woman : Person, IBabySitter
 
     public bool HasMakeup { get; private set; }
 
+    void IBabySitter.TakeCare()
+    {
+        if (Children != null)
+            Console.WriteLine("Сидит с детьми, пока родители в кино!");
+    }
+
 
     public void PutMakeup()
     {
@@ -36,10 +42,5 @@ public class Woman : Person, IBabySitter
     protected override void TakeCareImplementation()
     {
         if (Children != null) Console.WriteLine("Кормит ужином, а затем укладывает спать.");
-    }
-    void IBabySitter.TakeCare()
-    {
-        if (Children != null)
-            Console.WriteLine("Сидит с детьми, пока родители в кино!");
     }
 }

@@ -2,12 +2,12 @@
 
 public class Bits
 {
-    public byte Value { get; private set; }
-
     public Bits(byte b)
     {
-        this.Value = b;
+        Value = b;
     }
+
+    public byte Value { get; private set; }
 
     public bool this[int index]
     {
@@ -17,10 +17,7 @@ public class Bits
             // 0000_0100
             // 0000_0001
             // 0000_0001
-            if (index > 7 || index < 0)
-            {
-                return false;
-            }
+            if (index > 7 || index < 0) return false;
             return ((Value >> index) & 1) == 1;
         }
         // 0000_0000

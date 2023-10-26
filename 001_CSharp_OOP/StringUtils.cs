@@ -6,7 +6,7 @@ public static class StringUtils
     {
         Console.WriteLine("Конструктор создан!");
     }
-    
+
     // public static string Reverse(string s)
     // {
     //     return new String(s.ToCharArray().Reverse().ToArray());
@@ -15,7 +15,6 @@ public static class StringUtils
     // Расширение
     public static string Reverse(this string s)
     {
-        return new String(s.ToCharArray().Reverse().ToArray());
+        return new string(s.ToCharArray().Reverse().ToArray());
     }
-    
 }

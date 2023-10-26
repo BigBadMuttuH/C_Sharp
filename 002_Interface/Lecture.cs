@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using _001_CSharp_OOP;
+﻿using _001_CSharp_OOP;
 
 namespace _002_Interface;
 
@@ -59,6 +58,7 @@ public class Lecture
         mom.TakeCare();
         babySitter.TakeCare();
     }
+
     public static void Ex04()
     {
         var woman = new Woman("Анна", DateTime.Parse("01.01.1990"));
@@ -75,12 +75,10 @@ public class Lecture
 
         TakeCare(babySitter1, babySitter2, babySitter3);
     }
-    static void TakeCare(params IBabySitter[] sitters)
+
+    private static void TakeCare(params IBabySitter[] sitters)
     {
-        foreach (var s in sitters)
-        {
-            s.TakeCare();
-        }
+        foreach (var s in sitters) s.TakeCare();
     }
 
     public static void Ex05()
@@ -94,10 +92,7 @@ public class Lecture
         parent.AddFamilyInfo(grandPa, grandMa, kid1);
 
 
-        for (int i = 0; i < parent.Count; i++)
-        {
-            parent[i].Print();
-        }
+        for (var i = 0; i < parent.Count; i++) parent[i].Print();
     }
 
     public static void Ex06()
@@ -106,10 +101,7 @@ public class Lecture
         // 0000_0100
         // 1111_1011
         var b = new Bits(122);
-        for (int i = 0; i <= 7; i++)
-        {
-            Console.WriteLine(b[i]);
-        }
+        for (var i = 0; i <= 7; i++) Console.WriteLine(b[i]);
 
         b[0] = true;
         Console.WriteLine(b.Value);
@@ -117,17 +109,18 @@ public class Lecture
 
     // TODO: 1:00:03 следующая часть лекции.
     /// <summary>
-    /// Переопределение операторов.
+    ///     Переопределение операторов.
     /// </summary>
     public static void Ex07()
     {
         var a = new Fibonacci();
-        for (int i = 0; i <= 8; i++)
+        for (var i = 0; i <= 8; i++)
         {
             Console.Write($"{a} ");
             a++;
         }
-        var b  = new Fibonacci() + 8;
+
+        var b = new Fibonacci() + 8;
         Console.WriteLine($"\n{b}");
     }
 
@@ -144,6 +137,7 @@ public class Lecture
         bits = (Bits1)b;
         Console.WriteLine(b);
     }
+
     // Анонимные типы
     public static void Ex09()
     {
@@ -156,6 +150,7 @@ public class Lecture
         var groupOf33 = new { person1.Name, Name2 = person2.Name, Name3 = person3.Name };
         Console.WriteLine(groupOf33);
     }
+
     // Записи (record)
     public static void Ex10()
     {
@@ -163,7 +158,7 @@ public class Lecture
         r.b = 30;
         Console.WriteLine(r);
 
-        var r1 = new ReferenceRecord() { b = 10 };
+        var r1 = new ReferenceRecord { b = 10 };
         var r2 = r1;
         r2.b = 30;
         Console.WriteLine(r1);

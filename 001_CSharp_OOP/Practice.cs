@@ -1,18 +1,15 @@
-﻿using System.ComponentModel;
-using System.Data.Common;
-
-namespace _001_CSharp_OOP;
+﻿namespace _001_CSharp_OOP;
 
 public class Practice
 {
     public static void Family()
     {
-        FamilyMember grandpa = new FamilyMember("Дедушка", Gender.Male);
-        FamilyMember grandma = new FamilyMember("Бабушка", Gender.Female);
-        FamilyMember dad = new FamilyMember("Папа", Gender.Male);
-        FamilyMember mom = new FamilyMember("Мама", Gender.Female);
-        FamilyMember children1 = new FamilyMember("Ребенок1", Gender.Male);
-        FamilyMember children2 = new FamilyMember("Ребенок2", Gender.Female);
+        var grandpa = new FamilyMember("Дедушка", Gender.Male);
+        var grandma = new FamilyMember("Бабушка", Gender.Female);
+        var dad = new FamilyMember("Папа", Gender.Male);
+        var mom = new FamilyMember("Мама", Gender.Female);
+        var children1 = new FamilyMember("Ребенок1", Gender.Male);
+        var children2 = new FamilyMember("Ребенок2", Gender.Female);
 
 
         grandpa.Children.Add(dad);

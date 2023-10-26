@@ -7,5 +7,4 @@ public static class Program
         // ДЗ №1
         HomeWork_01.HomeWork(args);
     }
-
 }

@@ -61,7 +61,7 @@ public class Lecture
             // w.PutMakeup();
             // Woman w = p as Woman;
             (p as Woman)?.PutMakeup();
-            (p as  Man)?.Shave();
+            (p as Man)?.Shave();
 
             p.SayHello();
             p.SayHelloPhrase();
@@ -80,7 +80,7 @@ public class Lecture
 
     public static void Ex06()
     {
-        string s1 = StringUtils.Reverse("123");
+        var s1 = "123".Reverse();
         Console.WriteLine(s1);
 
         var s2 = "123";

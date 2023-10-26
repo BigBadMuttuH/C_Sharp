@@ -2,8 +2,8 @@
 
 public class Fibonacci
 {
+    private int valuePrev;
     public int Value { get; private set; } = 1;
-    private int valuePrev = 0;
 
     public static Fibonacci operator ++(Fibonacci f)
     {
@@ -16,10 +16,7 @@ public class Fibonacci
 
     public static Fibonacci operator +(Fibonacci f, int count)
     {
-        for (int i = 0; i < count; i++)
-        {
-            f++;
-        }
+        for (var i = 0; i < count; i++) f++;
         return f;
     }
 

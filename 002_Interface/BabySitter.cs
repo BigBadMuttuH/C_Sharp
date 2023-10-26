@@ -2,7 +2,7 @@
 
 namespace _002_Interface;
 
-public class BabySitter:IBabySitter
+public class BabySitter : IBabySitter
 {
     public void TakeCare()
     {
