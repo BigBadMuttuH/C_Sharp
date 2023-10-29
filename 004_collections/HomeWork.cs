@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace _004_collections;
+﻿namespace _004_collections;
 
 public static class HomeWork
 {
