@@ -5,6 +5,10 @@ namespace _004_collections;
 
 public static class Dictionary
 {
+    // Ex03
+    private static readonly int[] buckets = new int[10];
+    private static readonly DictionaryEntry[] entries = new DictionaryEntry[10];
+    private static int c;
 
     // Ex01
     public static void Ex01()
@@ -16,16 +20,6 @@ public static class Dictionary
         Console.WriteLine(i.GetHashCode());
     }
 
-    // Ex02
-    private struct SomeStruct
-    {
-        public int X;
-    }
-
-    private class SomeClass
-    {
-        public int X;
-    }
     public static void Ex02()
     {
         var a = new SomeStruct { X = 10 };
@@ -36,11 +30,6 @@ public static class Dictionary
         var d = new SomeClass { X = 10 };
         Console.WriteLine(c.Equals(d)); // False
     }
-
-    // Ex03
-    static readonly int[] buckets = new int[10];
-    static DictionaryEntry[] entries = new DictionaryEntry[10];
-    static int c = 0;
     // Словарь основан на такой структуре данных, как хеш-таблица.
     // Корзины (Buckets):
     // Словарь содержит массив корзин (buckets).
@@ -55,7 +44,7 @@ public static class Dictionary
         // & (0x7fffffff % buckets.Length) гарантирует, что индекс корзины будет в пределах размера массива buckets
         // и не будет отрицательным.
         // 0x7fffffff — это максимальное 32-битное положительное целое число.
-        int bucketNum = key.GetHashCode() & (0x7fffffff % buckets.Length);
+        var bucketNum = key.GetHashCode() & (0x7fffffff % buckets.Length);
         buckets[bucketNum] = c;
         entries[c].Value = value;
         c++;
@@ -64,11 +53,11 @@ public static class Dictionary
         // После этого сохраняем значение элемента в массив entries по индексу c и увеличиваем c.
     }
 
-    static object Get(object key)
+    private static object Get(object key)
     {
         // Чтобы получить значение по ключу, снова вычисляем номер корзины с помощью хеш-кода ключа.
         // Используем индекс из корзины, чтобы обратиться к массиву entries и получить значение.
-        int bucketNum = key.GetHashCode() & (0x7fffffff % buckets.Length);
+        var bucketNum = key.GetHashCode() & (0x7fffffff % buckets.Length);
         return entries[buckets[bucketNum]].Value;
     }
 
@@ -80,6 +69,7 @@ public static class Dictionary
         Console.WriteLine(Get(5));
         Console.WriteLine(Get(6));
     }
+
     // Ex04
     public static void Ex04()
     {
@@ -89,8 +79,8 @@ public static class Dictionary
         d["США"] = "Вашингтон";
 
         foreach (var key in d)
-            Console.WriteLine(key); 
-        
+            Console.WriteLine(key);
+
         foreach (var v in d.Values)
             Console.WriteLine(v);
 
@@ -108,9 +98,9 @@ public static class Dictionary
         Console.WriteLine(d.ContainsValue("Москва"));
 
         Console.WriteLine();
-        if (d.Remove("Россия", out string val)) // может возвращать true/false
+        if (d.Remove("Россия", out var val)) // может возвращать true/false
             Console.WriteLine(val);
-        
+
         d.Add("Россия", "Москва");
     }
 
@@ -121,47 +111,48 @@ public static class Dictionary
         var sb = new StringBuilder();
 
         foreach (var c in text)
-        {
-            if (Char.IsLetter(c))
+            if (char.IsLetter(c))
+            {
                 sb.Append(c);
+            }
             else
             {
                 if (sb.Length > 0)
                 {
                     var key = sb.ToString().ToLower();
-                    
+
                     if (d.ContainsKey(key))
-                    {
                         d[key]++;
-                    }
                     else
-                    {
                         d[key] = 1;
-                    }
 
                     sb.Clear();
                 }
             }
-        }
+
         if (sb.Length > 0)
         {
             var key = sb.ToString().ToLower();
-            
+
             if (d.ContainsKey(key))
-            {
                 d[key]++;
-            }
             else
-            {
                 d[key] = 0;
-            }
-            
+
             sb.Clear();
         }
 
-        foreach (var e in d)
-        {
-            Console.WriteLine($"{e.Key} = {e.Value}");
-        }
+        foreach (var e in d) Console.WriteLine($"{e.Key} = {e.Value}");
+    }
+
+    // Ex02
+    private struct SomeStruct
+    {
+        public int X;
+    }
+
+    private class SomeClass
+    {
+        public int X;
     }
 }
