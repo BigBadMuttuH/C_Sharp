@@ -12,7 +12,7 @@ public class HomeWork
             Console.WriteLine($"Результат равен: {e.Result}");
         }
 
-        static void DisplayCancelMessage(object sender, ResultEventArgs e)
+        static void DisplayCancelMessage(object? sender, ResultEventArgs e)
         {
             Console.WriteLine("Последнее действие отменено.");
         }
