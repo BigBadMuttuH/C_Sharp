@@ -79,19 +79,19 @@ public class Lambda
 
     /*
     Цикл for: Когда ты запускаешь цикл for, переменная i создается один раз для всего цикла, а не для каждой итерации.
-    
+
     Делегат: Внутри цикла ты создаешь анонимный метод (делегат), который выводит значение i.
     Но важно понимать, что этот анонимный метод не "копирует" текущее значение i в момент создания.
     Вместо этого он "захватывает" ссылку на переменную i.
-    
+
     Добавление в список: Ты добавляешь этот анонимный метод в список actions.
     Но все делегаты в этом списке "смотрят" на одну и ту же переменную i.
-    
+
     Завершение цикла: Когда цикл for завершается, значение i становится 11 (потому что это условие выхода из цикла: i<=10).
-    
+
     Invoke: Позже, когда ты вызываешь action.Invoke(),
     все делегаты в списке actions выводят значение одной и той же переменной i, которая теперь равна 11.
-    
+
     чтобы это исправить надо создать локальную переменную
     вот так:
     for (int i = 0; i <= 10; i++)
@@ -108,45 +108,45 @@ public class Lambda
     // Снова о захвате переменных в LINQ
     public static void Ex04()
     {
-        int i = 10;
+        var i = 10;
         var ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         var filtred = ints.Where(delegate(int x) { return x < i; });
 
         i = 5;
-        
-        foreach (var x in filtred)
-        {
-            Console.Write(x + " ");
-        }
+
+        foreach (var x in filtred) Console.Write(x + " ");
         // 1 2 3 4
     }
 
     public static void Ex05()
     {
         var func = (int x) => x * 2;
-        
+
         var action = () => Console.WriteLine("Привет!");
         action();
-        
-        
-        List<int> ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+
+        var ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         foreach (var i in ints.Where(x => x % 2 == 0))
             Console.Write($"{i} ");
     }
 
-    static void SayHello(string name) => Console.WriteLine($"Привет, {name}!");
+    private static void SayHello(string name)
+    {
+        Console.WriteLine($"Привет, {name}!");
+    }
 
     public static void Ex06()
     {
-        Action<string> action = SayHello;
+        var action = SayHello;
 
         // Если не используем параметр, строчку ниже, лучше переписать с `_`. Это сэкономит немножко памяти
         // action += (string x) => { Console.WriteLine("Привет, у меня нет имени!"); };
-        action += (_) => { Console.WriteLine("Привет, у меня нет имени!"); };
-        
+        action += _ => { Console.WriteLine("Привет, у меня нет имени!"); };
+
         action("Василий");
-        
+
         // с 10 версии C# можно так
         var a = object () => { return "Строка"; };
         // тут a станет Func<object>

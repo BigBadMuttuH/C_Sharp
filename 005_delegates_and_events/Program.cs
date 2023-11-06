@@ -24,9 +24,19 @@ public static class Program
         // Lambda.Ex04();
         // Lambda.Ex05();
         // Lambda.Ex06();
-        
+
         // TODO: 01:50 - События
         // Events01.Ex01();
-        Events02.Ex01();
+        // Events02.Ex01();
+
+        // Practice
+        // Practice.Pr01();
+        // Practice.Pr02();
+        // Practice.Pr03();
+        // Practice.Pr04();
+        // Practice.Pr05();
+        // Practice.Pr06();
+        
+        HomeWork.Hw01();
     }
 }

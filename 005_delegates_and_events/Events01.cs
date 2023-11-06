@@ -7,7 +7,7 @@ public class MyEventArgs : EventArgs
 
 public delegate void MyEventHandler(object sendler, MyEventArgs args);
 
-class ClassWriteEvetns
+internal class ClassWriteEvents
 {
     public event MyEventHandler SomeEvent;
 
@@ -22,9 +22,9 @@ class ClassWriteEvetns
             () =>
             {
                 Thread.Sleep(10_000);
-                OnSomeEvent( new MyEventArgs {Message = "Все!"});
+                OnSomeEvent(new MyEventArgs { Message = "Все!" });
             }
-            ).Start();
+        ).Start();
     }
 }
 
@@ -32,9 +32,9 @@ public class Events01
 {
     public static void Ex01()
     {
-        var c = new ClassWriteEvetns();
+        var c = new ClassWriteEvents();
         c.SomeEvent += C_SomeEvent;
-        
+
         c.DoSomeWork();
         Console.WriteLine("Запущено на выполнение");
         Console.ReadLine();
@@ -43,6 +43,6 @@ public class Events01
 
     private static void C_SomeEvent(object sender, MyEventArgs args)
     {
-        Console.WriteLine("Событие от класса " + sender + "Сообщающее " + args.Message); 
+        Console.WriteLine("Событие от класса " + sender + "Сообщающее " + args.Message);
     }
 }
