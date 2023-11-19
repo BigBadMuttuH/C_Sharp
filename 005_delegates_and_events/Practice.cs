@@ -128,7 +128,7 @@ public interface ICalc
 internal class Calc : ICalc
 {
     private Stack<double> LastResult { get; } = new();
-    public double Result { get; set; } = 0D;
+    public double Result { get; set; }
 
     public void Sum(int x)
     {

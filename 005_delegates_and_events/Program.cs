@@ -36,7 +36,7 @@ public static class Program
         // Practice.Pr04();
         // Practice.Pr05();
         // Practice.Pr06();
-        
+
         HomeWork.Hw01();
     }
 }

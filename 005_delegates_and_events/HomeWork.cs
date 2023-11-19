@@ -6,7 +6,7 @@ public class HomeWork
     {
         var calculator = new Calculator();
         calculator.MyEventHandler += DisplayResult;
-        
+
         static void DisplayResult(object? sender, ResultEventArgs e)
         {
             Console.WriteLine($"Результат равен: {e.Result}");
@@ -22,22 +22,21 @@ public class HomeWork
 
         while (true)
         {
-            Console.WriteLine("Укажите операцию (+, -, *, /) и нажмите Enter, Backspace для отмены последнего действия, End - выход.");
+            Console.WriteLine(
+                "Укажите операцию (+, -, *, /) и нажмите Enter, Backspace для отмены последнего действия, End - выход.");
             var key = Console.ReadKey(true).Key;
-            
-            if (key == ConsoleKey.End)
-            {
-                break;
-            }
+
+            if (key == ConsoleKey.End) break;
 
             if (key != ConsoleKey.Backspace)
             {
                 Console.WriteLine("Введите число и нажмите Enter:");
-                if (!int.TryParse(Console.ReadLine(), out int number))
+                if (!int.TryParse(Console.ReadLine(), out var number))
                 {
                     Console.WriteLine("Некорректный ввод. Пожалуйста, введите число.");
                     continue;
                 }
+
                 switch (key)
                 {
                     case ConsoleKey.OemPlus:
@@ -77,23 +76,24 @@ public interface ICalculate
     void Multiply(int x);
     void Divide(int x);
     void CancelLast();
-    
+
     event EventHandler<ResultEventArgs> MyEventHandler;
 }
+
 public class ResultEventArgs : EventArgs
 {
-    public double Result { get; }
-
     public ResultEventArgs(double result)
     {
         Result = result;
     }
+
+    public double Result { get; }
 }
 
 internal class Calculator : ICalculate
 {
     private Stack<double> LastResult { get; } = new();
-    public double Result { get; set; } = 0D;
+    public double Result { get; set; }
     public event EventHandler<ResultEventArgs>? MyEventHandler;
 
     public void Sum(int x)
@@ -124,11 +124,12 @@ internal class Calculator : ICalculate
             Console.WriteLine("Ошибка: Деление на ноль невозможно.");
             return;
         }
+
         Result /= x;
         PrintResult();
         LastResult.Push(Result);
     }
-    
+
     public void CancelLast()
     {
         if (LastResult.Count > 1)
