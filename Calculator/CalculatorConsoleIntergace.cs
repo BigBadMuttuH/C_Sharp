@@ -57,7 +57,7 @@ public class CalculatorConsoleInterface
 
     private bool TryConvertToPositiveDouble(string input, out double result)
     {
-        // Не важно, точку мы поставили или запятую в дробно числе.
+        // Не важно, точку мы поставили или запятую в дробноm числе.
         input = input.Replace(',', '.');
         if (double.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
         {
