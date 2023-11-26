@@ -16,13 +16,13 @@ class FileSearchUtility
     {
         try
         {
-            var files = Directory.GetFiles(directory, $"*.{this._extension}");
+            var files = Directory.EnumerateFiles(directory, $"*.{this._extension}");
             foreach (var file in files)
             {
                 SearchFile(file);
             }
 
-            var directories = Directory.GetDirectories(directory);
+            var directories = Directory.EnumerateDirectories(directory);
             foreach (var dir in directories)
             {
                 SearchInDirectory(dir);
