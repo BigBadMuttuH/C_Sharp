@@ -4,9 +4,9 @@ namespace _009_Serialization;
 
 public enum Hobby
 {
-    [XmlEnum("Art")]
-    Painting,
-    [XmlEnum("Hunt")]
-    Fishing,
-    Sport
+    [XmlEnum("Art")] Painting,
+    [XmlEnum("Hunt")] Fishing,
+    Sport,
+    Reading,
+    Gaming
 }
